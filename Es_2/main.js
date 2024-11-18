@@ -25,8 +25,6 @@ btn.addEventListener("click", () => {
     // Ottieni il valore del titolo e del paragrafo
     let title = document.getElementById("title").value;
     let paragraph = document.getElementById("paragraph").value;
-    let date = new Date();
-    let formatDate = date.toLocaleDateString();
 
     // Verifico se è stato inserito un testo
     if (title === '' || paragraph === '') {
@@ -46,9 +44,16 @@ btn.addEventListener("click", () => {
     const cardParagraph = document.createElement('p');
     cardParagraph.textContent = paragraph;
 
-    // Aggiungo il titolo e il paragrafo alla card
+    // Crea un elemento per la data
+    const data = document.createElement('p');
+    let date = new Date();
+    data.textContent = `Pubblicato il: ${date.toLocaleDateString()}`;
+    data.style.fontStyle = 'italic'; 
+
+    // Aggiungo il titolo, il paragrafo e la data alla card
     card.appendChild(cardTitle);
     card.appendChild(cardParagraph);
+    card.appendChild(data);
 
     // Aggiungo la card al contenitore delle card
     cardContainer.appendChild(card);
